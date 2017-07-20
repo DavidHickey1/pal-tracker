@@ -11,7 +11,7 @@ public class WelcomeController {
     final String message;
 
     @Autowired
-    public WelcomeController(@Value("${WELCOME_MESSAGE}") final String message){
+    public WelcomeController(@Value("${WELCOME_MESSAGE:Hello}") final String message){
         this.message = message;
     }
 
