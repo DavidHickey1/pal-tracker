@@ -17,7 +17,7 @@ public class TimeEntry {
         this.hours = hours;
     }
 
-    // test
+    // test2
     public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
         this.id = id;
         this.projectId = projectId;
