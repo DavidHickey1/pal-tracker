@@ -23,6 +23,7 @@ public class TimeEntryController {
             return new ResponseEntity<>(timeEntry, CREATED);
     }
 
+    /*
     @GetMapping("/time-entries/{id}")
     public ResponseEntity<TimeEntry> read(@PathVariable long id) {
         TimeEntry timeEntry = timeEntryRepository.find(id);
@@ -33,6 +34,21 @@ public class TimeEntryController {
     @GetMapping("/time-entries")
     public ResponseEntity<List<TimeEntry>> list() {
         return ResponseEntity.ok(timeEntryRepository.list());
+    }
+*/
+    @GetMapping("/time-entries/{id}")
+    public ResponseEntity<TimeEntry> read(@PathVariable Long id) {
+        TimeEntry timeEntry = timeEntryRepository.find(id);
+        if (timeEntry != null) {
+            return new ResponseEntity<>(timeEntry, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/time-entries")
+    public ResponseEntity<List<TimeEntry>> list() {
+        return new ResponseEntity<>(timeEntryRepository.list(), HttpStatus.OK);
     }
 
     @PutMapping("/time-entries/{id}")
