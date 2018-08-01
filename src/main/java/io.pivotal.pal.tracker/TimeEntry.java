@@ -70,6 +70,7 @@ public class TimeEntry {
     public long getProjectId() {
         return projectId;
     }
+
     public long getUserId() {
         return userId;
     }

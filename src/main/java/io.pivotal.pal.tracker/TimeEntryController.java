@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -19,10 +18,8 @@ public class TimeEntryController {
     }
 
     @PostMapping("/time-entries")
-//    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<TimeEntry> create(@RequestBody TimeEntry timeEntryToCreate) throws Exception {
             TimeEntry timeEntry = timeEntryRepository.create(timeEntryToCreate);
-//            return ResponseEntity.status(HttpStatus.CREATED).body(timeEntry);
             return new ResponseEntity<>(timeEntry, CREATED);
     }
 
